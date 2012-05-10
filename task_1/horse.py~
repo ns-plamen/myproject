@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+
+import os, sys, os.path, stat, time
+from stat import *
+from django.http import HttpResponse
+from django.template import Template, Context
+
+
+
+def listdir (name):
+	answer = {'isdir': True}
+	result = []
+	#proverka validen put
+	if not os.path.exists(name):
+		error = 'error'
+		return error
+	
+	#iz4ita stat-a na obekta
+	file_stats = os.stat(name)
+	
+	#funk. za print na stat-a
+	def fileprint (name):
+		file_info = {
+			'fsize': file_stats [stat.ST_SIZE],
+			'f_lm': time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(file_stats[stat.ST_MTIME])),
+			'f_la': time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(file_stats[stat.ST_ATIME])),
+			'f_ct': time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(file_stats[stat.ST_CTIME]))
+			}
+		filesize = ("%(fsize)s bytes" % file_info)
+		crtdat = ("%(f_ct)s" % file_info)
+		lstmod = ("%(f_lm)s" % file_info)
+		lstacc = ("%(f_la)s" % file_info)
+		allstat = [name, filesize, crtdat, lstmod,lstacc]
+		
+		return allstat
+	#proverka na targeta - dir ili file	
+	if not os.path.isfile (name):
+		#TRQQ DA sloja proverka dali (name) ima '/' nakraq!!!!i ako ne da +
+		
+		#target is DIR                
+		answer ['path'] = (name)
+		contain = os.listdir(name)
+		for a in (contain):
+			in_name = name + a
+			file_stats = os.stat(in_name)
+			#proverka sudurjanieto na DIR
+			if not os.path.isfile (in_name):
+				dirtarget = [(in_name), 'True']
+				result.append(dirtarget)
+			else:
+				#current_target = fileprint(in_name)
+				result.append(fileprint(in_name))
+	#ne e dir => print		
+	else:
+		answer ['path'] = (name)
+		answer ['isdir'] = False
+		#print file_stats
+		target_file = fileprint(name)
+		result.append(target_file)
+	answer ['listdir'] = (result)
+	#result = ((result)+'<a href="http://127.0.0.1:8000/index/">BACK</a>')
+	return answer
+
+
+
+
+
+

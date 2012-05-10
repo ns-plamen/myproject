@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  alert("debug");
+  $("Hide").click(function(){
+    $("gone").hide(1000,function(){
+      alert("The paragraph is now hidden");
+    });
+  });
+});
+
+
+

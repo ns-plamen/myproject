@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <input type="hidden" id="month_now" value="{{ now_month }}"/>
+     <input type="hidden" id="year_now" value="{{ now_year }}"/>
+     <!-- main_2nd.js dont need this -->
+     <input type="hidden" id="month_monday" value="{{ monthMonday }}"/>
+     <input type="hidden" id="month_tuesday" value="{{ monthTuesday }}"/>
+     <input type="hidden" id="month_wednesday" value="{{ monthWednesday }}"/>
+     <input type="hidden" id="month_thursday" value="{{ monthThursday }}"/>
+     <input type="hidden" id="month_friday" value="{{ monthFriday }}"/>
+     <input type="hidden" id="month_saturday" value="{{ monthSaturday }}"/>
+     <input type="hidden" id="month_sunday" value="{{ monthSunday }}"/>
+    {% load static %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}javascript/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/mystyle.css" >
+    <title>
+        CALENDAR
+    </title>
+    </head>
+    <body>
+        <script> var now_month = $("#month_now").val(); var now_year = $("#year_now").val();</script>
+        <h>
+        Today is <var id="date_now" class="today_style">{{ now }}</var>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table>
+           <tr>
+               <td>
+		<table>
+		    <tr>
+		        <td class="weekdays" id="mon">Mon</td>
+		        <td class="weekdays" id="tue">Tue</td>
+		        <td class="weekdays" id="wed">Wed</td>
+		        <td class="weekdays" id="thu">Thu</td>
+		        <td class="weekdays" id="fri">Fri</td>
+		        <td class="weekdays" id="sat">Sat</td>
+		        <td class="weekdays" id="sun">Sun</td>
+		    </tr>
+		           
+		    {% for week in monthlist %}
+		        <tr class="cal_tab">
+		            {% for day in week %} 
+		                <td
+		                    {% if not day == 0 %}
+		                        {% if day == date_2 %}  class="day_style" id="{{ day }}"><a class="today_style"> {{ day }}</a>
+		                            {% else %} 
+		                                 class="day_style" id="{{ day }}"><a>{{ day }}</a>
+		                        {% endif %}
+		                    {% else %} class="blank_style"><a>&nbsp</a>
+		                    {% endif %}
+
+		                </td>
+		            {% endfor %}
+		        </tr>
+		    {% endfor %}
+		    
+		</table>
+		<br>
+		<a href="http://127.0.0.1:8000/index/">BACK</a><br>
+		</h>
+		<br>
+		<br>
+		<br>
+
+               </td>
+               <td valign=top>Selected date:</br><br>
+                <textarea id="display" rows="5"></textarea>
+               </td>
+               <td>
+               </td>         
+            </tr>    
+        </table>
+    </body>
+</html>
