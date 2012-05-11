@@ -33,3 +33,4 @@ def work(request):
     print result
     return render_to_response ('asd/result.html', result )
     #return HttpResponse(str(result))
+#useless comment for new branch :)
