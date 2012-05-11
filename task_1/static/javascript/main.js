@@ -12,7 +12,7 @@ $(document).ready(function(){
       $("#display").val(weekday+" "+month+" "+select_date+" "+now_year);
     }
   );
-  //select weekdays
+  //select weekdays   
     $(".weekdays").click(function(){
       $(".selected_day").toggleClass("selected_day");
       $(this).addClass("selected_day");

@@ -13,47 +13,71 @@ $(document).ready(function(){
     }
   );
   //select weekdays
-    $(".weekdays").click(function(){
+  $(".weekdays").click(function(){
       $(".selected_day").toggleClass("selected_day");
       $(this).addClass("selected_day");
       var selected_weekday = $(this).attr("id");
 
       if (selected_weekday == "mon")   {
-         $(".cal_tab td:nth-child(1)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Monday");
+          $("#display").val("all Monday");
+          var calculated_weekdays = $("#month_monday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          }
       }
       if (selected_weekday == "tue")   {
-         $(".cal_tab td:nth-child(2)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Tuesday");
+          $("#display").val("all Tuesday");
+          var calculated_weekdays = $("#month_tuesday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          }  
       }
       if (selected_weekday == "wed")   {
-         $(".cal_tab td:nth-child(3)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Wednesday");
+          $("#display").val("all Wednesday");
+          var calculated_weekdays = $("#month_wednesday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          } 
       }
       if (selected_weekday == "thu")   {
-         $(".cal_tab td:nth-child(4)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Thursday");
+          $("#display").val("all Thursday");
+          var calculated_weekdays = $("#month_thursday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          } 
       }
       if (selected_weekday == "fri")   {
-         $(".cal_tab td:nth-child(5)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Friday");
+          $("#display").val("all Friday");
+          var calculated_weekdays = $("#month_friday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          }
       }
       if (selected_weekday == "sat")   {
-         $(".cal_tab td:nth-child(6)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Saturday");
+          $("#display").val("all Satarday");
+          var calculated_weekdays = $("#month_saturday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          }
       }
       if (selected_weekday == "sun")   {
-         $(".cal_tab td:nth-child(7)").toggleClass("selected_day");
-         $(".blank_style").removeClass("selected_day");
-         $("#display").val("All Sunday");
+          $("#display").val("all Sunday");
+          var calculated_weekdays = $("#month_sunday").attr("value");
+          calculated_weekdays = calculated_weekdays.substring(1, calculated_weekdays.length-1).split(", ");
+          for(var i=0; i<calculated_weekdays.length; i++){ 
+            $("#"+calculated_weekdays[i]).toggleClass("selected_day"); 
+          }
       }
-    });
+
+         
+    }
+  );
 
 //alert("debug");
 });
