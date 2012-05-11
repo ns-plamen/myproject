@@ -9,8 +9,6 @@ from calendar import HTMLCalendar
 #from calendar import monthdatescalendar
 #from datetime import date
 
-
-
 def index(request):
     print 'test'
     return render_to_response ('asd/index.html', {} )
