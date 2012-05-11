@@ -12,7 +12,6 @@ from calendar import HTMLCalendar
 
 
 def index(request):
-    #print 'test1 bla bla bla'
     return render_to_response ('asd/index.html', {} )
 
 def time(request):
