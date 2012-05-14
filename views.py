@@ -6,8 +6,16 @@ from apps.asd.horse import listdir
 import datetime
 import calendar
 from calendar import HTMLCalendar
+<<<<<<< HEAD
 # from calendar import monthdatescalendar
 # from datetime import date
+=======
+#from calendar import monthdatescalendar
+#from datetime import date
+
+
+
+>>>>>>> parent of 0203e8b... removing empty lines
 def index(request):
     print 'test'
     return render_to_response ('asd/index.html', {} )

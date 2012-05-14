@@ -54,6 +54,7 @@ $(document).ready(function(){
          $("#display").val("All Sunday");
       }
     });
+
 //alert("debug");
 });
 
