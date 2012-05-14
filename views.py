@@ -15,6 +15,9 @@ from calendar import HTMLCalendar
 
 
 
+<<<<<<< HEAD
+>>>>>>> parent of 0203e8b... removing empty lines
+=======
 >>>>>>> parent of 0203e8b... removing empty lines
 def index(request):
     print 'test'
