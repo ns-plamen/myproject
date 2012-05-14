@@ -8,6 +8,9 @@ import calendar
 from calendar import HTMLCalendar
 # from calendar import monthdatescalendar bla-bla, yo-ho-ho!
 # from datetime import date bla-bla
+#from calendar import monthdatescalendar 222
+#from datetime import date 111
+
 
 def index(request):
     print 'test'
