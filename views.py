@@ -6,8 +6,8 @@ from apps.asd.horse import listdir
 import datetime
 import calendar
 from calendar import HTMLCalendar
-#from calendar import monthdatescalendar
-#from datetime import date
+#from calendar import monthdatescalendar 222
+#from datetime import date 111
 
 def index(request):
     print 'test'
